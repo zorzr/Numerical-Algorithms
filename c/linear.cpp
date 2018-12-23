@@ -2,6 +2,11 @@
 #include "linear.hpp"
 #define SWAP(a,b)  do { typeof(a) tmp = a;   a = b;   b = tmp; } while(0);
 
+/*
+    Gaussian Elimination: direct method for solving linear systems.
+    Partial pivoting is used. Similar to LU factorization.
+    Computational cost:  O(2/3 n^3)
+*/
 vector<double> gaussian_elimination(Matrix A, vector<double> b) {
     unsigned int i, j, k, n = b.size();
     vector<double> x = b;
@@ -32,6 +37,13 @@ vector<double> gaussian_elimination(Matrix A, vector<double> b) {
     return solve_upper(U, x);
 }
 
+/*
+    Jacobi method: iterative algotithm for solving linear systems.
+    Splitting methods represent the matrix A as:     A = M - N
+     then at each iteration they solve    Mx = b + Nx
+    Here the matrix M only contains the diagonal of A.
+    Computational cost:  O(2 n^2) for each iteration
+*/
 vector<double> jacobi(Matrix A, vector<double> b, double tol, int maxits, vector<double> x0) {
     vector<double> x = x0;
     vector<double> r = sub(b, A*x0);
@@ -53,6 +65,12 @@ vector<double> jacobi(Matrix A, vector<double> b, double tol, int maxits, vector
     return x;
 }
 
+/*
+    Gauss-Seidel method: iterative algotithm for solving linear systems.
+    Splitting method similar to Jacobi's, but here M is a matrix with the lower
+     triangular values of A.
+    Computational cost:  O(2 n^2) for each iteration
+*/
 vector<double> gauss_seidel(Matrix A, vector<double> b, double tol, int maxits, vector<double> x0) {
     vector<double> x = x0;
     vector<double> r = sub(b, A*x0);
