@@ -3,10 +3,10 @@
 
 #include "matrix.hpp"
 
-void print_matrix(Matrix A) {
+void print_matrix(Matrix& A) {
     for (unsigned int i = 0; i < A.rows; i++) {
         for(unsigned int j = 0; j < A.cols; j++)
-            printf("%lf\t", A[i][j]);
+            printf("%lf\t", A(i,j));
         printf("\n");
     }
     printf("\n");

@@ -26,7 +26,7 @@ void test_jacobi() {
     Matrix A = Matrix(V);
 
     printf("[JACOBI METHOD]\n");
-    print_vect(jacobi(A,b,0.00001,100,{0,0,0}));
+    print_vect(jacobi(A,b,0.000001,100,{0,0,0}));
 }
 
 void test_gauss_seidel() {
@@ -39,7 +39,7 @@ void test_gauss_seidel() {
     Matrix A = Matrix(V);
 
     printf("[GAUSS-SEIDEL METHOD]\n");
-    print_vect(gauss_seidel(A,b,0.00001,100,{0,0,0}));
+    print_vect(gauss_seidel(A,b,0.000001,100,{0,0,0}));
 }
 
 

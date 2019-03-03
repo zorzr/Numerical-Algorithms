@@ -32,16 +32,16 @@ void test_lu() {
         { 4,  1,  8 }
     };
 
-    Matrix A = Matrix(V);
-    Matrix L, U, P;
-    tie(L, U, P) = lu(A);
-    
-    printf("[LU FACTORIZATION]\nL:\n");
-    print_matrix(L);
-    printf("U:\n");
-    print_matrix(U);
-    printf("P:\n");
-    print_matrix(P);
+	Matrix A = Matrix(V);
+	Matrix *L, *U, *P;
+	tie(L, U, P) = lu(A);
+
+	printf("[LU FACTORIZATION]\nL:\n");
+	print_matrix(*L);
+	printf("U:\n");
+	print_matrix(*U);
+	printf("P:\n");
+	print_matrix(*P);
 }
 
 void test_inverse() {
@@ -74,7 +74,7 @@ void test_chol() {
     Matrix S = Matrix(V);
     
     printf("[INVERSE (CHOLESKY ALG.)]\n");
-    print_matrix(inverse(S));
+    print_matrix(inv_chol(S));
 }
 
 
